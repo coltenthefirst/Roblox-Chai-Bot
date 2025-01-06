@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/chai_api', methods=['POST'])
 def chat():
-    api_key = request.headers.get('X-API_KEY')
+    api_key = request.headers.get('KEY')
     if not api_key:
         return jsonify({"error": "API key missing"}), 400
     content = request.json.get('content')
