@@ -11,12 +11,14 @@ def chat():
     try:
         api_key = request.headers.get('KEY')
         print(f"API Key from header: {api_key}")
+        
         if not api_key:
             print("No API key found in headers.")
             return jsonify({"error": "API key missing"}), 400
         
         content = request.json.get('content')
         print(f"Content from JSON body: {content}")
+        
         if not content:
             print("No content found in JSON payload.")
             return jsonify({"error": "Content missing"}), 400
@@ -24,12 +26,7 @@ def chat():
         url = "https://api.chai-research.com/v1/chat/completions"
         payload = {
             "model": "chai_v1",
-            "messages": [
-                {
-                    "role": "ai",
-                    "content": content
-                }
-            ]
+            "messages": [{"role": "ai", "content": content}]
         }
         
         headers = {
@@ -53,4 +50,5 @@ if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     debug_mode = os.environ.get("FLASK_DEBUG", "False").lower() in ["true", "1"]
     print("Starting Flask app on port", port, "with debug =", debug_mode)
+    
     app.run(debug=debug_mode, host='0.0.0.0', port=port)
