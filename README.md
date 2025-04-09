@@ -1,5 +1,7 @@
 # RobloxChaiBot
 
+# DUE TO CHAI BEING STRANGE ABOUT THEIR API SYSTEM. THIS TEMPORARY NO LONGER WORKS AS OF APRIL 2025.
+
 This was just for fun. Memory was built by me. The issue with this is that, when you talk to the bot and leave and rejoin, it will still remember that conversation. Same for talking with it in different servers.
 
 100% Python
